@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #1a1a2e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --accent-green: #00ff41;
+    --accent-cyan: #00d4ff;
+    --accent-amber: #ffb000;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #00ff41 #1a1a2e;
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #1a1a2e;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #00ff41, #00d4ff);
+    border-radius: 4px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-mainframe-dark text-gray-200 font-body;
+    background: 
+      radial-gradient(ellipse at top, rgba(0, 255, 65, 0.03) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(0, 212, 255, 0.03) 0%, transparent 50%),
+      #0a0a0f;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .terminal-window {
+    @apply bg-mainframe-terminal border border-mainframe-green/30 rounded-lg overflow-hidden;
+    box-shadow: 
+      0 0 20px rgba(0, 255, 65, 0.1),
+      inset 0 0 60px rgba(0, 0, 0, 0.3);
+  }
+
+  .terminal-header {
+    @apply flex items-center gap-2 px-4 py-2 bg-mainframe-darker border-b border-mainframe-green/20;
+  }
+
+  .terminal-dot {
+    @apply w-3 h-3 rounded-full;
+  }
+
+  .code-block {
+    @apply font-mono text-sm leading-relaxed p-4 bg-mainframe-darker rounded-lg border border-mainframe-green/20;
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+  }
+
+  .card-highlight {
+    @apply bg-mainframe-terminal/50 border border-mainframe-green/20 rounded-xl p-6;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+
+  .card-highlight:hover {
+    @apply border-mainframe-green/40;
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .nav-link {
+    @apply px-4 py-2 rounded-lg transition-all duration-300 text-gray-400 hover:text-mainframe-green hover:bg-mainframe-green/10;
+  }
+
+  .nav-link.active {
+    @apply text-mainframe-green bg-mainframe-green/10 border-l-2 border-mainframe-green;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-mainframe-green/20 border border-mainframe-green text-mainframe-green font-medium rounded-lg;
+    @apply hover:bg-mainframe-green/30 hover:shadow-lg hover:shadow-mainframe-green/20;
+    @apply transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-accent-cyan/20 border border-accent-cyan text-accent-cyan font-medium rounded-lg;
+    @apply hover:bg-accent-cyan/30 hover:shadow-lg hover:shadow-accent-cyan/20;
+    @apply transition-all duration-300;
+  }
+
+  .section-title {
+    @apply text-3xl font-display font-bold text-mainframe-green mb-6;
+    text-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+  }
+
+  .subsection-title {
+    @apply text-xl font-display font-semibold text-accent-cyan mb-4;
+  }
+
+  .info-box {
+    @apply p-4 rounded-lg border-l-4;
+  }
+
+  .info-box.tip {
+    @apply bg-mainframe-green/10 border-mainframe-green;
+  }
+
+  .info-box.warning {
+    @apply bg-mainframe-amber/10 border-mainframe-amber;
+  }
+
+  .info-box.note {
+    @apply bg-accent-cyan/10 border-accent-cyan;
+  }
+
+  .table-mainframe {
+    @apply w-full border-collapse;
+  }
+
+  .table-mainframe th {
+    @apply px-4 py-3 bg-mainframe-terminal text-mainframe-green font-mono text-left border-b border-mainframe-green/30;
+  }
+
+  .table-mainframe td {
+    @apply px-4 py-3 border-b border-mainframe-green/10 font-mono text-sm;
+  }
+
+  .table-mainframe tr:hover td {
+    @apply bg-mainframe-green/5;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-mainframe-green via-accent-cyan to-mainframe-green;
+  }
+
+  .border-gradient {
+    border-image: linear-gradient(90deg, #00ff41, #00d4ff, #00ff41) 1;
+  }
+
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+}
+
+/* Syntax highlighting for EasyTrieve */
+.eztv-keyword { @apply text-mainframe-green font-bold; }
+.eztv-statement { @apply text-accent-cyan; }
+.eztv-string { @apply text-mainframe-amber; }
+.eztv-number { @apply text-accent-magenta; }
+.eztv-comment { @apply text-gray-500 italic; }
+.eztv-field { @apply text-white; }
+.eztv-operator { @apply text-gray-400; }
+
+/* CRT effect overlay */
+.crt-overlay {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.1) 0px,
+      rgba(0, 0, 0, 0.1) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+  z-index: 9999;
+  opacity: 0.1;
+}
