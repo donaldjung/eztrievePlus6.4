@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import CodeBlock from '../../components/code/CodeBlock'
 import FlowDiagram from '../../components/visualizations/FlowDiagram'
 import { BookOpen, Lightbulb, AlertTriangle, Info } from 'lucide-react'
@@ -554,13 +555,13 @@ PARM DEBUG(SHORT) LIMIT(1000)`}
       {/* Next Module Link */}
       <div className="flex justify-between items-center pt-8 border-t border-mainframe-green/20">
         <div />
-        <a
-          href="/module/2"
+        <Link
+          to="/module/2"
           className="btn-primary flex items-center gap-2"
         >
           Next: File Processing
           <span>→</span>
-        </a>
+        </Link>
       </div>
     </div>
   )

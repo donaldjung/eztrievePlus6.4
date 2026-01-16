@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import CodeBlock from '../../components/code/CodeBlock'
 import FlowDiagram from '../../components/visualizations/FlowDiagram'
 import { GitBranch, Lightbulb, AlertTriangle, Info } from 'lucide-react'
@@ -632,14 +633,14 @@ STOP`}
 
       {/* Navigation */}
       <div className="flex justify-between items-center pt-8 border-t border-mainframe-green/20">
-        <a href="/module/2" className="btn-secondary flex items-center gap-2">
+        <Link to="/module/2" className="btn-secondary flex items-center gap-2">
           <span>←</span>
           Previous: File Processing
-        </a>
-        <a href="/module/4" className="btn-primary flex items-center gap-2">
+        </Link>
+        <Link to="/module/4" className="btn-primary flex items-center gap-2">
           Next: Data Manipulation
           <span>→</span>
-        </a>
+        </Link>
       </div>
     </div>
   )

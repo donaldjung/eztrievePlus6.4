@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import CodeBlock from '../../components/code/CodeBlock'
 import { Settings2, Lightbulb, Info } from 'lucide-react'
 
@@ -547,14 +548,14 @@ W BINARY-VAL    W   4  B  0   * Binary
 
       {/* Navigation */}
       <div className="flex justify-between items-center pt-8 border-t border-mainframe-green/20">
-        <a href="/module/3" className="btn-secondary flex items-center gap-2">
+        <Link to="/module/3" className="btn-secondary flex items-center gap-2">
           <span>←</span>
           Previous: Control Structures
-        </a>
-        <a href="/module/5" className="btn-primary flex items-center gap-2">
+        </Link>
+        <Link to="/module/5" className="btn-primary flex items-center gap-2">
           Next: Report Generation
           <span>→</span>
-        </a>
+        </Link>
       </div>
     </div>
   )

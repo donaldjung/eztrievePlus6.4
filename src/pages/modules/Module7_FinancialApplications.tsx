@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import CodeBlock from '../../components/code/CodeBlock'
 import FlowDiagram from '../../components/visualizations/FlowDiagram'
 import { Building2, Lightbulb, Info, AlertTriangle } from 'lucide-react'
@@ -628,14 +629,14 @@ STOP`}
 
       {/* Navigation */}
       <div className="flex justify-between items-center pt-8 border-t border-mainframe-green/20">
-        <a href="/module/6" className="btn-secondary flex items-center gap-2">
+        <Link to="/module/6" className="btn-secondary flex items-center gap-2">
           <span>←</span>
           Previous: Sorting & Summarization
-        </a>
-        <a href="/playground" className="btn-primary flex items-center gap-2">
+        </Link>
+        <Link to="/playground" className="btn-primary flex items-center gap-2">
           Try the Playground
           <span>→</span>
-        </a>
+        </Link>
       </div>
     </div>
   )
